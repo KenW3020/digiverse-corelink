@@ -1,1 +1,0 @@
-// Stub: Circom ZK proof for device-bound NFT
