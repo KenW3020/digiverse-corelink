@@ -1,0 +1,1 @@
+# Stub for L-system emotion logic
