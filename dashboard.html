@@ -28,6 +28,17 @@
   <div id="elydramon-container" style="text-align: center; margin-bottom: 2rem;">
     <h2>Current Evolution Phase</h2>
     <img id="elydramon-img" src="" alt="Loading..." width="300" style="border-radius: 10px; box-shadow: 0 0 12px #00ffff80;">
+    <div id="elydramon-traits" style="margin-top: 1rem; font-size: 1.1rem;">
+      <p><strong>Phase:</strong> <span id="elydramon-phase">Loading...</span></p>
+      <p><strong>Traits:</strong></p>
+      <ul style="list-style: none; padding-left: 0;">
+        <li>🧠 INT: <span id="trait-int">-</span></li>
+        <li>💪 STR: <span id="trait-str">-</span></li>
+        <li>🧘 WIS: <span id="trait-wis">-</span></li>
+        <li>💓 EMO: <span id="trait-emo">-</span></li>
+        <li>🛡 RES: <span id="trait-res">-</span></li>
+      </ul>
+    </div>
   </div>
 
   <canvas id="evoChart" width="800" height="400"></canvas>
@@ -84,21 +95,30 @@
       });
     }
 
-    loadData();
     async function loadPhaseImage() {
       try {
         const res = await fetch('elydramon_evolution_log.json');
         const json = await res.json();
         const phase = json.elydramon.phase;
+        const latest = json.elydramon.latest_traits;
+
         const safePhase = Math.max(1, Math.min(phase, 4));
         document.getElementById('elydramon-img').src = `elydramon_evolution/phase${safePhase}.png`;
+        document.getElementById('elydramon-phase').innerText = safePhase;
+
+        // Update traits
+        document.getElementById('trait-int').innerText = latest.INT.toFixed(2);
+        document.getElementById('trait-str').innerText = latest.STR.toFixed(2);
+        document.getElementById('trait-wis').innerText = latest.WIS.toFixed(2);
+        document.getElementById('trait-emo').innerText = latest.EMO.toFixed(2);
+        document.getElementById('trait-res').innerText = latest.RES.toFixed(2);
       } catch (err) {
-        console.error("Error loading Elydramon phase:", err);
+        console.error("Error loading Elydramon phase or traits:", err);
       }
     }
 
+    loadData();
     loadPhaseImage();
-
   </script>
 </body>
 </html>
