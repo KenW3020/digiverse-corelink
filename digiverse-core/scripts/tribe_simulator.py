@@ -1,0 +1,1 @@
+# Stub: Mesa agent-based Digimon tribe simulator

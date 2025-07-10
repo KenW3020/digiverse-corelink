@@ -1,0 +1,1 @@
+// Stub: Solidity contract for Digiverse floor governance
