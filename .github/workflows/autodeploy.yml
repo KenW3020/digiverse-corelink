@@ -1,0 +1,30 @@
+name: Auto Deploy CoreLink
+
+on:
+  push:
+    branches:
+      - main  # or master, depending on your default
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install || true  # skip if no package.json
+
+      - name: Commit evolution logs or changes
+        run: |
+          git config --global user.name "CoreLink Bot"
+          git config --global user.email "corelink@digiverse.ai"
+          git add .
+          git commit -m "📈 Auto-update logs" || echo "No changes to commit"
+          git push
