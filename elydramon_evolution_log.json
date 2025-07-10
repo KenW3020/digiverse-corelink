@@ -1,0 +1,37 @@
+[
+  {
+    "date": "2025-07-06T09:00:00",
+    "phase": "Stage-1",
+    "traits": { "INT": 0.55, "STR": 0.48, "WIS": 0.51, "EMO": 0.52, "RES": 0.50 },
+    "mood": "calm",
+    "dream_resonance": 0.33
+  },
+  {
+    "date": "2025-07-07T09:00:00",
+    "phase": "Stage-2",
+    "traits": { "INT": 0.69, "STR": 0.63, "WIS": 0.66, "EMO": 0.62, "RES": 0.65 },
+    "mood": "focused",
+    "dream_resonance": 0.58
+  },
+  {
+    "date": "2025-07-08T09:00:00",
+    "phase": "Stage-3",
+    "traits": { "INT": 0.80, "STR": 0.76, "WIS": 0.79, "EMO": 0.74, "RES": 0.77 },
+    "mood": "dreaming",
+    "dream_resonance": 0.71
+  },
+  {
+    "date": "2025-07-09T09:00:00",
+    "phase": "Stage-4",
+    "traits": { "INT": 0.91, "STR": 0.86, "WIS": 0.88, "EMO": 0.87, "RES": 0.85 },
+    "mood": "alert",
+    "dream_resonance": 0.84
+  },
+  {
+    "date": "2025-07-10T09:00:00",
+    "phase": "Stage-5",
+    "traits": { "INT": 1.02, "STR": 0.98, "WIS": 1.01, "EMO": 0.96, "RES": 0.99 },
+    "mood": "reflective",
+    "dream_resonance": 0.92
+  }
+]
