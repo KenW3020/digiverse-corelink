@@ -1,0 +1,8 @@
+digiverse-corelink/
+├── index.html
+├── dashboard.html
+├── elydramon_evolution/
+│   ├── phase1.png   # Egg
+│   ├── phase2.png   # Baby
+│   ├── phase3.png   # Evolving
+│   └── phase4.png   # Guardian Form
