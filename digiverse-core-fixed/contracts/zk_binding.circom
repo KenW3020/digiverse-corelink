@@ -1,0 +1,1 @@
+// Stub Circom proof
