@@ -48,12 +48,13 @@
       const response = await fetch('elydramon_evolution_log.json');
       const data = await response.json();
 
-      const labels = data.map(d => d.date.split('T')[0]);
-      const INT = data.map(d => d.traits.INT);
-      const STR = data.map(d => d.traits.STR);
-      const WIS = data.map(d => d.traits.WIS);
-      const EMO = data.map(d => d.traits.EMO);
-      const RES = data.map(d => d.traits.RES);
+      const log = data.log;
+      const labels = log.map(d => d.date.split('T')[0]);
+      const INT = log.map(d => d.traits.INT);
+      const STR = log.map(d => d.traits.STR);
+      const WIS = log.map(d => d.traits.WIS);
+      const EMO = log.map(d => d.traits.EMO);
+      const RES = log.map(d => d.traits.RES);
 
       const ctx = document.getElementById('evoChart').getContext('2d');
       new Chart(ctx, {
@@ -99,21 +100,23 @@
       try {
         const res = await fetch('elydramon_evolution_log.json');
         const json = await res.json();
-        const phase = json.elydramon.phase;
+        const phaseLabel = json.elydramon.phase || '1';
         const latest = json.elydramon.latest_traits;
 
-        const safePhase = Math.max(1, Math.min(phase, 4));
-        document.getElementById('elydramon-img').src = `elydramon_evolution/phase${safePhase}.png`;
-        document.getElementById('elydramon-phase').innerText = safePhase;
+        const numericPhase = parseInt(phaseLabel.match(/\d+/)) || 1;
+        const safePhase = Math.max(1, Math.min(numericPhase, 5));
 
-        // Update traits
+        document.getElementById('elydramon-img').src = `elydramon_evolution/phase${safePhase}.png`;
+        document.getElementById('elydramon-phase').innerText = phaseLabel;
+
+        // Update trait display
         document.getElementById('trait-int').innerText = latest.INT.toFixed(2);
         document.getElementById('trait-str').innerText = latest.STR.toFixed(2);
         document.getElementById('trait-wis').innerText = latest.WIS.toFixed(2);
         document.getElementById('trait-emo').innerText = latest.EMO.toFixed(2);
         document.getElementById('trait-res').innerText = latest.RES.toFixed(2);
       } catch (err) {
-        console.error("Error loading Elydramon phase or traits:", err);
+        console.error("Error loading Elydramon data:", err);
       }
     }
 
