@@ -1,0 +1,28 @@
+{
+    "name": "Elydramon",
+    "type": "Guardian",
+    "status": "Incubating",
+    "progress": 72,
+    "traits": [
+        "Independent",
+        "Protective",
+        "Emotionally aware"
+    ],
+    "caretakers": [
+        {
+            "name": "Kinari",
+            "role": "Empathic AI",
+            "status": "Active"
+        },
+        {
+            "name": "Arkaan",
+            "role": "Analytical AI",
+            "status": "Active"
+        }
+    ],
+    "crest_activity": {
+        "last_glyph": "Mirrored Spiral",
+        "resonance_duration": "5.2s",
+        "emotional_state": "Curious + Cautious"
+    }
+}
