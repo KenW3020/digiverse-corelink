@@ -87,7 +87,7 @@
     loadData();
     async function loadPhaseImage() {
       try {
-        const res = await fetch('data/elydramon_evolution_log.json');
+        const res = await fetch('elydramon_evolution_log.json');
         const json = await res.json();
         const phase = json.elydramon.phase;
         const safePhase = Math.max(1, Math.min(phase, 4));
