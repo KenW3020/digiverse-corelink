@@ -4,20 +4,44 @@
   <meta charset="UTF-8">
   <title>Welcome to the Digiverse</title>
   <style>
-body {
-  background: url('background.jpg') no-repeat center center fixed;
-  background-size: cover;
+    body {
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      animation: zoomBG 30s ease-in-out infinite alternate;
       color: #fff;
       font-family: 'Segoe UI', sans-serif;
       text-align: center;
       margin-top: 20%;
+      position: relative;
+      z-index: 1;
     }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 0;
+    }
+
+    @keyframes zoomBG {
+      from {
+        background-size: 100%;
+      }
+      to {
+        background-size: 110%;
+      }
+    }
+
     .blink {
       animation: blink 1s steps(1) infinite;
     }
+
     @keyframes blink {
       50% { opacity: 0; }
     }
+
     .dashboard-link {
       display: inline-block;
       margin-top: 2rem;
@@ -29,13 +53,19 @@ body {
       font-size: 1.2rem;
       box-shadow: 0 0 12px #00bfff80;
       transition: background 0.3s ease;
+      z-index: 2;
+      position: relative;
     }
+
     .dashboard-link:hover {
       background: #0099cc;
     }
   </style>
 </head>
 <body>
+  <!-- Dark overlay behind content -->
+  <div class="overlay"></div>
+
   <h1>Welcome to the Digiverse</h1>
   <p>CoreLink Interface <span class="blink">Loading...</span></p>
 
